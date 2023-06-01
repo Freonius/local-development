@@ -38,6 +38,18 @@ app: FastAPI = FastAPI()
 
 
 @app.get(
+    "/db-uri",
+    description="Get the db uri",
+    response_model=BasicResponse,
+)
+async def db_uri():
+    """Should I tell you not to do this in production?"""
+    return {
+        "message": environ["DB_URI"],
+    }
+
+
+@app.get(
     "/message",
     description="Provides an hopeful message",
     response_model=BasicResponse,
