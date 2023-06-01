@@ -1,6 +1,10 @@
 from fastapi import FastAPI
 from uvicorn import run
 from .schema import BasicResponse
+from .utils import SecretsManager
+
+sec_man: SecretsManager = SecretsManager()
+sec_man.get_secrets("mySecret")
 
 app: FastAPI = FastAPI()
 
